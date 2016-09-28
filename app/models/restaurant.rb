@@ -1,6 +1,9 @@
 class Restaurant < ApplicationRecord
   # Direct associations
 
+  has_many   :cover_photos,
+             :dependent => :destroy
+
   has_many   :photos,
              :class_name => "UserPhoto",
              :dependent => :destroy
