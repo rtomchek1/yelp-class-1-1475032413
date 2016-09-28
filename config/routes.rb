@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "restaurants#index"
   # Routes for the Cover_photo resource:
   # CREATE
   get "/cover_photos/new", :controller => "cover_photos", :action => "new"
