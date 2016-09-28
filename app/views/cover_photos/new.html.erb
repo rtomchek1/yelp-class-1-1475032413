@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @cover_photo.errors.any? %>
+  <% @cover_photo.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Cover Photo</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_cover_photo" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for restaurant_id -->
+      <div class="form-group">
+        <label for="restaurant_id" class="control-label">
+          Restaurant
+        </label>
+
+        <input type="text" id="restaurant_id" name="restaurant_id" placeholder="Restaurant" class="form-control" value="<%= @cover_photo.restaurant_id %>">
+      </div>
+
+      <!-- Label and input for cover_photo -->
+      <div class="form-group">
+        <label for="cover_photo" class="control-label">
+          Cover photo
+        </label>
+
+        <input type="text" id="cover_photo" name="cover_photo" placeholder="Cover photo" class="form-control" value="<%= @cover_photo.cover_photo %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Cover Photo
+      </button>
+      or
+      <a href="/cover_photos">Cancel</a>
+    </form>
+  </div>
+</div>
