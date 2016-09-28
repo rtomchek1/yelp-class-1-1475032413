@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>User Photo #<%= @user_photo.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Image</dt>
+      <dd><%= @user_photo.image %></dd>
+
+      <dt>Restaurant</dt>
+      <dd><%= @user_photo.restaurant_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/user_photos" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/user_photos/<%= @user_photo.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_user_photo/<%= @user_photo.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
